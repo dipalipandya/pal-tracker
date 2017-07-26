@@ -1,6 +1,8 @@
+
 plugins {
     id "java"
     id "org.springframework.boot" version "1.5.4.RELEASE"
+    id "org.flywaydb.flyway" version "4.2.0"
 }
 
 repositories {
@@ -25,13 +27,3 @@ test.environment([
         "WELCOME_MESSAGE": "Hello from test",
         "SPRING_DATASOURCE_URL": testDbUrl,
 ])
-flyway {
-    url = developmentDbUrl
-    user = "tracker"
-    password = ""
-    locations = ["filesystem:databases/tracker/migrations"]
-}
-
-task testMigrate(type: FlywayMigrateTask) {
-    url = testDbUrl
-}

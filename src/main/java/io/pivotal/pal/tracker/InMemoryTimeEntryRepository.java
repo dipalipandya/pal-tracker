@@ -1,8 +1,5 @@
 package io.pivotal.pal.tracker;
 
-import io.pivotal.pal.tracker.TimeEntry;
-
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,23 +14,23 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
     Map<Long, TimeEntry> timeEntryMap = new HashMap<Long, TimeEntry>();
 
     @Override
-    public TimeEntry find(long l) {
+    public TimeEntry find(Long l) {
         return timeEntryMap.get(l);
     }
 
     @Override
-    public TimeEntry update(long id, TimeEntry timeEntry) {
+    public TimeEntry update(Long id, TimeEntry timeEntry) {
         timeEntryMap.replace(id, timeEntry);
         timeEntry.setId(id);
         return timeEntry;
     }
 
     @Override
-    public TimeEntry delete(long id) {
+    public void delete(Long id) {
 
         TimeEntry timeEntry = timeEntryMap.get(id);
         timeEntryMap.remove(id);
-        return timeEntry;
+
     }
 
     @Override

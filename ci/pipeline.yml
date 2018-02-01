@@ -96,9 +96,9 @@ jobs:
       CF_ORG: {{cf-org}}
       CF_SPACE: review
       MYSQL_IP: {{mysql-ip}}
-      DATABASE_NAME: {{review-database-name}}
-      DATABASE_USERNAME: {{review-database-username}}
-      DATABASE_PASSWORD: {{review-database-password}}
+      DATABASE_NAME: {{prod-database-name}}
+      DATABASE_USERNAME: {{prod-database-username}}
+      DATABASE_PASSWORD: {{prod-database-password}}
   - put: production-deployment
     params:
       manifest: pal-tracker/manifest-production.yml
